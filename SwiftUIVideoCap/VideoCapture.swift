@@ -102,21 +102,13 @@ class VideoCapture : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
     
-    // Closure to be called when a frame is captured
-    private var _onCapturedImage: ((CVImageBuffer?)->())? = nil
-    
-    // Function to enable SwiftUI to attach a closure
-    @discardableResult func onCapturedImage(_ c: ((CVImageBuffer?)->())?)->VideoCapture {
-        _onCapturedImage = c
-        return self
-    }
-    
     // Implemention of protocol AVCaptureVideoDataOutputSampleBufferDelegate
     // AVFoundation will call this function when a frame is available
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
+        // Call closure if available
         self._onCapturedImage?(pixelBuffer)
     }
     
@@ -124,5 +116,14 @@ class VideoCapture : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     // AVFoundation will call this function when a frame has been dropped
     func captureOutput(_ captureOutput: AVCaptureOutput, didDrop didDropSampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         print("Dropped frame")
+    }
+    
+    // Closure to be called when a frame is captured
+    private var _onCapturedImage: ((CVImageBuffer?)->())? = nil
+    
+    // Function to enable SwiftUI to attach a closure
+    @discardableResult func onCapturedImage(_ c: ((CVImageBuffer?)->())?)->VideoCapture {
+        _onCapturedImage = c
+        return self
     }
 }

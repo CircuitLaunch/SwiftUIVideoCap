@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C21B4C3D28454B480021FF3A /* SwiftUIVideoCapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C3C28454B480021FF3A /* SwiftUIVideoCapApp.swift */; };
+		C21B4C3F28454B480021FF3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C3E28454B480021FF3A /* ContentView.swift */; };
+		C21B4C4128454B490021FF3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21B4C4028454B490021FF3A /* Assets.xcassets */; };
+		C21B4C4428454B490021FF3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21B4C4328454B490021FF3A /* Preview Assets.xcassets */; };
+		C21B4C4F28454B490021FF3A /* SwiftUIVideoCapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C4E28454B490021FF3A /* SwiftUIVideoCapTests.swift */; };
+		C21B4C5928454B490021FF3A /* SwiftUIVideoCapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C5828454B490021FF3A /* SwiftUIVideoCapUITests.swift */; };
+		C21B4C5B28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */; };
+		C21B4C6828454D270021FF3A /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C6728454D270021FF3A /* VideoCapture.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C21B4C4B28454B490021FF3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C21B4C3128454B480021FF3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C21B4C3828454B480021FF3A;
+			remoteInfo = SwiftUIVideoCap;
+		};
+		C21B4C5528454B490021FF3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C21B4C3128454B480021FF3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C21B4C3828454B480021FF3A;
+			remoteInfo = SwiftUIVideoCap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C21B4C3928454B480021FF3A /* SwiftUIVideoCap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIVideoCap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21B4C3C28454B480021FF3A /* SwiftUIVideoCapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIVideoCapApp.swift; sourceTree = "<group>"; };
+		C21B4C3E28454B480021FF3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C21B4C4028454B490021FF3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C21B4C4328454B490021FF3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C21B4C4528454B490021FF3A /* SwiftUIVideoCap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUIVideoCap.entitlements; sourceTree = "<group>"; };
+		C21B4C4A28454B490021FF3A /* SwiftUIVideoCapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIVideoCapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21B4C4E28454B490021FF3A /* SwiftUIVideoCapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIVideoCapTests.swift; sourceTree = "<group>"; };
+		C21B4C5428454B490021FF3A /* SwiftUIVideoCapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIVideoCapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21B4C5828454B490021FF3A /* SwiftUIVideoCapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIVideoCapUITests.swift; sourceTree = "<group>"; };
+		C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIVideoCapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C21B4C6728454D270021FF3A /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		C21B4C69284559D20021FF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C21B4C3628454B480021FF3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21B4C4728454B490021FF3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21B4C5128454B490021FF3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C21B4C3028454B480021FF3A = {
+			isa = PBXGroup;
+			children = (
+				C21B4C3B28454B480021FF3A /* SwiftUIVideoCap */,
+				C21B4C4D28454B490021FF3A /* SwiftUIVideoCapTests */,
+				C21B4C5728454B490021FF3A /* SwiftUIVideoCapUITests */,
+				C21B4C3A28454B480021FF3A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C21B4C3A28454B480021FF3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C21B4C3928454B480021FF3A /* SwiftUIVideoCap.app */,
+				C21B4C4A28454B490021FF3A /* SwiftUIVideoCapTests.xctest */,
+				C21B4C5428454B490021FF3A /* SwiftUIVideoCapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C21B4C3B28454B480021FF3A /* SwiftUIVideoCap */ = {
+			isa = PBXGroup;
+			children = (
+				C21B4C69284559D20021FF3A /* Info.plist */,
+				C21B4C3C28454B480021FF3A /* SwiftUIVideoCapApp.swift */,
+				C21B4C3E28454B480021FF3A /* ContentView.swift */,
+				C21B4C6728454D270021FF3A /* VideoCapture.swift */,
+				C21B4C4028454B490021FF3A /* Assets.xcassets */,
+				C21B4C4528454B490021FF3A /* SwiftUIVideoCap.entitlements */,
+				C21B4C4228454B490021FF3A /* Preview Content */,
+			);
+			path = SwiftUIVideoCap;
+			sourceTree = "<group>";
+		};
+		C21B4C4228454B490021FF3A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C21B4C4328454B490021FF3A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C21B4C4D28454B490021FF3A /* SwiftUIVideoCapTests */ = {
+			isa = PBXGroup;
+			children = (
+				C21B4C4E28454B490021FF3A /* SwiftUIVideoCapTests.swift */,
+			);
+			path = SwiftUIVideoCapTests;
+			sourceTree = "<group>";
+		};
+		C21B4C5728454B490021FF3A /* SwiftUIVideoCapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C21B4C5828454B490021FF3A /* SwiftUIVideoCapUITests.swift */,
+				C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */,
+			);
+			path = SwiftUIVideoCapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C21B4C3828454B480021FF3A /* SwiftUIVideoCap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C21B4C5E28454B490021FF3A /* Build configuration list for PBXNativeTarget "SwiftUIVideoCap" */;
+			buildPhases = (
+				C21B4C3528454B480021FF3A /* Sources */,
+				C21B4C3628454B480021FF3A /* Frameworks */,
+				C21B4C3728454B480021FF3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftUIVideoCap;
+			productName = SwiftUIVideoCap;
+			productReference = C21B4C3928454B480021FF3A /* SwiftUIVideoCap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C21B4C4928454B490021FF3A /* SwiftUIVideoCapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C21B4C6128454B490021FF3A /* Build configuration list for PBXNativeTarget "SwiftUIVideoCapTests" */;
+			buildPhases = (
+				C21B4C4628454B490021FF3A /* Sources */,
+				C21B4C4728454B490021FF3A /* Frameworks */,
+				C21B4C4828454B490021FF3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C21B4C4C28454B490021FF3A /* PBXTargetDependency */,
+			);
+			name = SwiftUIVideoCapTests;
+			productName = SwiftUIVideoCapTests;
+			productReference = C21B4C4A28454B490021FF3A /* SwiftUIVideoCapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C21B4C5328454B490021FF3A /* SwiftUIVideoCapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C21B4C6428454B490021FF3A /* Build configuration list for PBXNativeTarget "SwiftUIVideoCapUITests" */;
+			buildPhases = (
+				C21B4C5028454B490021FF3A /* Sources */,
+				C21B4C5128454B490021FF3A /* Frameworks */,
+				C21B4C5228454B490021FF3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C21B4C5628454B490021FF3A /* PBXTargetDependency */,
+			);
+			name = SwiftUIVideoCapUITests;
+			productName = SwiftUIVideoCapUITests;
+			productReference = C21B4C5428454B490021FF3A /* SwiftUIVideoCapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C21B4C3128454B480021FF3A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					C21B4C3828454B480021FF3A = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					C21B4C4928454B490021FF3A = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = C21B4C3828454B480021FF3A;
+					};
+					C21B4C5328454B490021FF3A = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = C21B4C3828454B480021FF3A;
+					};
+				};
+			};
+			buildConfigurationList = C21B4C3428454B480021FF3A /* Build configuration list for PBXProject "SwiftUIVideoCap" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C21B4C3028454B480021FF3A;
+			productRefGroup = C21B4C3A28454B480021FF3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C21B4C3828454B480021FF3A /* SwiftUIVideoCap */,
+				C21B4C4928454B490021FF3A /* SwiftUIVideoCapTests */,
+				C21B4C5328454B490021FF3A /* SwiftUIVideoCapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C21B4C3728454B480021FF3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C21B4C4428454B490021FF3A /* Preview Assets.xcassets in Resources */,
+				C21B4C4128454B490021FF3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21B4C4828454B490021FF3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21B4C5228454B490021FF3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C21B4C3528454B480021FF3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C21B4C3F28454B480021FF3A /* ContentView.swift in Sources */,
+				C21B4C6828454D270021FF3A /* VideoCapture.swift in Sources */,
+				C21B4C3D28454B480021FF3A /* SwiftUIVideoCapApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21B4C4628454B490021FF3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C21B4C4F28454B490021FF3A /* SwiftUIVideoCapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21B4C5028454B490021FF3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C21B4C5928454B490021FF3A /* SwiftUIVideoCapUITests.swift in Sources */,
+				C21B4C5B28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C21B4C4C28454B490021FF3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C21B4C3828454B480021FF3A /* SwiftUIVideoCap */;
+			targetProxy = C21B4C4B28454B490021FF3A /* PBXContainerItemProxy */;
+		};
+		C21B4C5628454B490021FF3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C21B4C3828454B480021FF3A /* SwiftUIVideoCap */;
+			targetProxy = C21B4C5528454B490021FF3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C21B4C5C28454B490021FF3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C21B4C5D28454B490021FF3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		C21B4C5F28454B490021FF3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftUIVideoCap/SwiftUIVideoCap.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIVideoCap/Preview Content\"";
+				DEVELOPMENT_TEAM = TTWJ8VQQ2V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIVideoCap/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Video Capture Test";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ailife.SwiftUIVideoCap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C21B4C6028454B490021FF3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftUIVideoCap/SwiftUIVideoCap.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIVideoCap/Preview Content\"";
+				DEVELOPMENT_TEAM = TTWJ8VQQ2V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIVideoCap/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Video Capture Test";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ailife.SwiftUIVideoCap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C21B4C6228454B490021FF3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TTWJ8VQQ2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ailife.SwiftUIVideoCapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIVideoCap.app/Contents/MacOS/SwiftUIVideoCap";
+			};
+			name = Debug;
+		};
+		C21B4C6328454B490021FF3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TTWJ8VQQ2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ailife.SwiftUIVideoCapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIVideoCap.app/Contents/MacOS/SwiftUIVideoCap";
+			};
+			name = Release;
+		};
+		C21B4C6528454B490021FF3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TTWJ8VQQ2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ailife.SwiftUIVideoCapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SwiftUIVideoCap;
+			};
+			name = Debug;
+		};
+		C21B4C6628454B490021FF3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TTWJ8VQQ2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ailife.SwiftUIVideoCapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SwiftUIVideoCap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C21B4C3428454B480021FF3A /* Build configuration list for PBXProject "SwiftUIVideoCap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C21B4C5C28454B490021FF3A /* Debug */,
+				C21B4C5D28454B490021FF3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C21B4C5E28454B490021FF3A /* Build configuration list for PBXNativeTarget "SwiftUIVideoCap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C21B4C5F28454B490021FF3A /* Debug */,
+				C21B4C6028454B490021FF3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C21B4C6128454B490021FF3A /* Build configuration list for PBXNativeTarget "SwiftUIVideoCapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C21B4C6228454B490021FF3A /* Debug */,
+				C21B4C6328454B490021FF3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C21B4C6428454B490021FF3A /* Build configuration list for PBXNativeTarget "SwiftUIVideoCapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C21B4C6528454B490021FF3A /* Debug */,
+				C21B4C6628454B490021FF3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C21B4C3128454B480021FF3A /* Project object */;
+}

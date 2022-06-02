@@ -70,10 +70,10 @@ class DeepVision {
         return self
     }
     
-    func submit(image: CIImage, xScale: CGFloat, yScale: CGFloat) {
+    func submit(image: CIImage, imgWidth: CGFloat, imgHeight: CGFloat, modelWidth: CGFloat, modelHeight: CGFloat) {
         // Scale the image
-        if let scaledImage = image.scaled(x: xScale, y: yScale) {
-            let bounds = CGRect(x: 0.0, y: 0.0, width: image.extent.width, height: image.extent.height)
+        if let scaledImage = image.scaled(x: modelWidth / imgWidth, y: modelHeight / imgHeight) {
+            let bounds = CGRect(x: 0.0, y: 0.0, width: modelWidth, height: modelHeight)
             // Convert it to a CoreGraphics image and then into a Cocoa NSImage
             if let cgImage = sharedContext.createCGImage(scaledImage, from: bounds) {
                 // Create a request handler that will submit the image to the MLModel

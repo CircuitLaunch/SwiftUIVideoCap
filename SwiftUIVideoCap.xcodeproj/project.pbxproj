@@ -15,6 +15,7 @@
 		C21B4C5928454B490021FF3A /* SwiftUIVideoCapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C5828454B490021FF3A /* SwiftUIVideoCapUITests.swift */; };
 		C21B4C5B28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */; };
 		C21B4C6828454D270021FF3A /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C6728454D270021FF3A /* VideoCapture.swift */; };
+		C2528E4328483A9C00ECF85C /* DeepVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2528E4228483A9C00ECF85C /* DeepVision.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIVideoCapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C21B4C6728454D270021FF3A /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		C21B4C69284559D20021FF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C2528E4228483A9C00ECF85C /* DeepVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepVision.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				C21B4C3C28454B480021FF3A /* SwiftUIVideoCapApp.swift */,
 				C21B4C3E28454B480021FF3A /* ContentView.swift */,
 				C21B4C6728454D270021FF3A /* VideoCapture.swift */,
+				C2528E4228483A9C00ECF85C /* DeepVision.swift */,
 				C21B4C4028454B490021FF3A /* Assets.xcassets */,
 				C21B4C4528454B490021FF3A /* SwiftUIVideoCap.entitlements */,
 				C21B4C4228454B490021FF3A /* Preview Content */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C21B4C3F28454B480021FF3A /* ContentView.swift in Sources */,
+				C2528E4328483A9C00ECF85C /* DeepVision.swift in Sources */,
 				C21B4C6828454D270021FF3A /* VideoCapture.swift in Sources */,
 				C21B4C3D28454B480021FF3A /* SwiftUIVideoCapApp.swift in Sources */,
 			);

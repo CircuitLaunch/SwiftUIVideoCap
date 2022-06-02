@@ -9,6 +9,7 @@ import SwiftUI
 import AVFoundation
 
 let videoCapture = VideoCapture()
+let objectDetector = DeepVision(modelName: "yolov5s")
 
 let sharedContext = CIContext(options: [.useSoftwareRenderer: false])
 
@@ -71,6 +72,14 @@ struct ContentView: View {
                                     var bounds = CGRect(x: 0, y: 0, width: width, height: height)
                                     // Create a CoreImage image class with the buffer
                                     var ciImage = CIImage(cvImageBuffer: buffer)
+                                    
+                                    // Submit the image to Vision/CoreML for
+                                    // object detection
+                                    objectDetector.submit(
+                                        image: ciImage,
+                                        xScale: 640.0 / Double(width),
+                                        yScale: 640.0 / Double(height))
+
                                     // Scale the image
                                     if let scaledImage = ciImage.scaled(by: scale) {
                                         ciImage = scaledImage
@@ -115,6 +124,17 @@ extension CIImage {
             filter.setValue(self, forKey: "inputImage")
             filter.setValue(scale, forKey: "inputScale")
             filter.setValue(1.0, forKey: "inputAspectRatio")
+            return filter.value(forKey: "outputImage") as? CIImage
+        }
+        return nil
+    }
+    
+    // Non-uniform scaling
+    func scaled(x: CGFloat, y: CGFloat)->CIImage? {
+        if let filter = CIFilter(name: "CIAffineTransform") {
+            let xform = NSAffineTransform(transform: AffineTransform(scaleByX: x, byY: y))
+            filter.setValue(self, forKey: "inputImage")
+            filter.setValue(xform, forKey: "inputTransform")
             return filter.value(forKey: "outputImage") as? CIImage
         }
         return nil

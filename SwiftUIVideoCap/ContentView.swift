@@ -31,7 +31,7 @@ struct ContentView: View {
     // The bounds of the captured frames
     @State var bounds = CGRect(x:0.0, y:0.0, width:100.0, height:100.0)
     // The scaling factor for display
-    @State var scale: Double = 0.333333333
+    @State var scale: Double = 1.0
     
     // The currently captured frame as an NSImage
     @State private var nsImage = NSImage()

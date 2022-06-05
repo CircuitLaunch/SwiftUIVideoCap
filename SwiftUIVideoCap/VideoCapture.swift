@@ -12,6 +12,11 @@ class VideoCapture : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     private let captureSession = AVCaptureSession()
     private let sessionOutput = AVCaptureVideoDataOutput()
     private let captureQueue = DispatchQueue(label: "VideoDataOutput")
+    private var captureDevice: AVCaptureDevice? = nil
+    
+    deinit {
+        stop()
+    }
     
     // Start a capture session using the camera with the specified camera id
     func start(using cameraId: String) {
@@ -50,6 +55,8 @@ class VideoCapture : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         
+        self.captureDevice = device
+        
         // Abort if the device's input is inaccessible
         guard let deviceInput = try? AVCaptureDeviceInput(device: device) else {
             print("Failed to access device input")
@@ -68,12 +75,39 @@ class VideoCapture : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         
+        var locked = false
+        
+        do {
+            try device.lockForConfiguration()
+            locked = true
+        } catch {
+        }
+        
         // Begin configuring the session
         captureSession.beginConfiguration()
 
         // Add the input and output
         captureSession.addInput(deviceInput)
         captureSession.addOutput(sessionOutput)
+        
+        /*
+        var maxDuration: CMTime = .zero
+        var slowestFormat: AVCaptureDevice.Format? = nil
+        for format in device.formats {
+            for frameRateRange in format.videoSupportedFrameRateRanges {
+                print(frameRateRange.maxFrameDuration)
+                if frameRateRange.maxFrameDuration > maxDuration {
+                    maxDuration = frameRateRange.maxFrameDuration
+                    slowestFormat = format
+                }
+            }
+        }
+        */
+        
+        if locked {
+            device.activeVideoMinFrameDuration = CMTime(value: 1, timescale: 15)
+            device.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: 15)
+        }
         
         // Configure the output to discard late frames
         sessionOutput.alwaysDiscardsLateVideoFrames = true
@@ -87,18 +121,46 @@ class VideoCapture : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         if let connection = sessionOutput.connection(with: .video) {
             connection.isEnabled = true
         }
-
+        
         // Finalize the configuration
         captureSession.commitConfiguration()
         
         // Start the session
         captureSession.startRunning()
+        
+        if locked {
+            device.unlockForConfiguration()
+        }
+        
     }
     
     // Terminate the session if it is active
     func stop() {
         if captureSession.isRunning {
             captureSession.stopRunning()
+            var locked = false
+            
+            if let captureDevice = captureDevice {
+                do {
+                    try captureDevice.lockForConfiguration()
+                    locked = true
+                } catch {
+                }
+                
+                // Begin configuring the session
+                captureSession.beginConfiguration()
+
+                if locked {
+                    captureDevice.activeVideoMinFrameDuration = .invalid
+                    captureDevice.activeVideoMaxFrameDuration = .invalid
+                }
+                
+                captureSession.commitConfiguration()
+                
+                if locked {
+                    captureDevice.unlockForConfiguration()
+                }
+            }
         }
     }
     

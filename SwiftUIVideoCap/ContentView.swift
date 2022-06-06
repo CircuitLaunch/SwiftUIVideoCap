@@ -10,7 +10,9 @@ import AVFoundation
 import Vision
 
 let videoCapture = VideoCapture()
-let objectDetector = DeepVision(modelName: "yolov5s")
+let objectDetector = CoreMLVision(modelName: "yolov5s")
+let faceDetector = FaceDetector()
+let faceLandmarkDetector = FaceLandmarkDetector()
 
 let sharedContext = CIContext(options: [.useSoftwareRenderer: false])
 
@@ -18,6 +20,23 @@ struct Detection {
     var id: Int
     var frame: CGRect
     var identifiers: [(id: String, conf: Float)] = []
+}
+
+struct FaceLandmarks {
+    var id: Int
+    var faceContour: [CGPoint] = []
+    var leftEye: [CGPoint] = []
+    var rightEye: [CGPoint] = []
+    var leftEyebrow: [CGPoint] = []
+    var rightEyebrow: [CGPoint] = []
+    var nose: [CGPoint] = []
+    var noseCrest: [CGPoint] = []
+    var medianLine: [CGPoint] = []
+    var outerLips: [CGPoint] = []
+    var innerLips: [CGPoint] = []
+    var facePaths: [CGPath] = []
+    var leftPupil: CGPoint = .zero
+    var rightPupil: CGPoint = .zero
 }
 
 struct ContentView: View {
@@ -34,9 +53,13 @@ struct ContentView: View {
     @State var scale: Double = 1.0
     
     // The currently captured frame as an NSImage
+    @State private var ciImage = CIImage()
     @State private var nsImage = NSImage()
     
     @State private var detections: [Detection] = []
+    @State private var faceObservations: [VNFaceObservation] = []
+    @State private var faceDetections: [Detection] = []
+    @State private var faceLandmarks: [FaceLandmarks] = []
     
     var body: some View {
         // Vertical stack containing a Picker, and an Image
@@ -81,7 +104,7 @@ struct ContentView: View {
                                         let height = CVPixelBufferGetHeight(buffer)
                                         var bounds = CGRect(x: 0, y: 0, width: width, height: height)
                                         // Create a CoreImage image class with the buffer
-                                        var ciImage = CIImage(cvImageBuffer: buffer)
+                                        ciImage = CIImage(cvImageBuffer: buffer)
                                         
                                         // Submit the image to Vision/CoreML for
                                         // object detection
@@ -91,6 +114,13 @@ struct ContentView: View {
                                             imgHeight: bounds.height,
                                             modelWidth: 640.0,
                                             modelHeight: 640.0)
+                                            
+                                        faceDetector.submit(
+                                            image: ciImage,
+                                            imgWidth: bounds.width,
+                                            imgHeight: bounds.height,
+                                            modelWidth: bounds.width,
+                                            modelHeight: bounds.height)
                                         
                                         // Scale the image
                                         if let scaledImage = ciImage.scaled(by: scale) {
@@ -128,6 +158,7 @@ struct ContentView: View {
                                         for label in objectObservation.labels {
                                             // Filter out spurious detections
                                             if label.confidence > 0.9 {
+                                                print("Detected object \(label.identifier)")
                                                 // Append the identifier/confidence factor pair as a tuple
                                                 detection.identifiers.append((label.identifier, label.confidence))
                                             }
@@ -139,8 +170,150 @@ struct ContentView: View {
                                     }
                                 }
                                 
+                            faceDetector
+                                .onDetectionResults { results in
+                                    var i: Int = 0
+                                    faceDetections = []
+                                    for result in results where result is VNFaceObservation{
+                                        if let faceObservation = result as? VNFaceObservation {
+                                            let box = VNImageRectForNormalizedRect(faceObservation.boundingBox, Int(self.bounds.width), Int(self.bounds.height))
+                                            let confidence = faceObservation.confidence
+                                            var detection = Detection(id: i, frame: box)
+                                            detection.identifiers = [("face", confidence)]
+                                            faceDetections.append(detection)
+                                        }
+                                        i += 1
+                                    }
+                                    
+                                    if let faceObservations = results.filter({ observation in observation is VNFaceObservation }) as? [VNFaceObservation] {
+                                        faceLandmarkDetector.faceObservations = faceObservations
+                                        faceLandmarkDetector.submit(
+                                            image: ciImage,
+                                            imgWidth: bounds.width,
+                                            imgHeight: bounds.height,
+                                            modelWidth: bounds.width,
+                                            modelHeight: bounds.height)
+                                    }
+                                }
+                                
+                            faceLandmarkDetector
+                                .onDetectionResults { results in
+                                    var i: Int = 0
+                                    var landmarksArray: [FaceLandmarks] = []
+                                    for observation in results where observation is VNFaceObservation {
+                                        guard let landmarkObservation = observation as? VNFaceObservation else {
+                                            continue
+                                        }
+                                        if let landmarks = landmarkObservation.landmarks {
+                                            var facePoints = FaceLandmarks(id: i)
+                                            var pathPoints: [[CGPoint]] = []
+                                            if let points = landmarks.faceContour {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.faceContour = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.leftEye {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.leftEye = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.rightEye {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.rightEye = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.rightEyebrow {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.rightEyebrow = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.leftEyebrow {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.leftEyebrow = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.nose {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.nose = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.noseCrest {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.noseCrest = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.medianLine {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.medianLine = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.outerLips {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.outerLips = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.innerLips {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.innerLips = imgPoints
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            if let points = landmarks.rightPupil {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.rightPupil = imgPoints[0]
+                                            }
+                                            if let points = landmarks.leftPupil {
+                                                let imgPoints = points.pointsInImage(imageSize: bounds.size).map { point in
+                                                    CGPoint(x: point.x, y: bounds.height - point.y)
+                                                }
+                                                facePoints.leftPupil = imgPoints[0]
+                                                pathPoints.append(imgPoints)
+                                            }
+                                            for points in pathPoints {
+                                                let path = CGMutablePath()
+                                                path.move(to: points[0])
+                                                for i in 1 ..< points.count {
+                                                    path.addLine(to: points[i])
+                                                }
+                                                path.closeSubpath()
+                                                facePoints.facePaths.append(path)
+                                            }
+                                            landmarksArray.append(facePoints)
+                                        }
+                                        i += 1
+                                    }
+                                    self.faceLandmarks = landmarksArray
+                                }
+                                
                             // Start object detection
                             objectDetector
+                                .start()
+                                
+                            faceDetector
+                                .start()
+                                
+                            faceLandmarkDetector
                                 .start()
                                 
                             // Start capturing
@@ -186,6 +359,33 @@ struct ContentView: View {
                                 .strokeBorder(Color.red, style: StrokeStyle(lineWidth: 1.0))
                                 .frame(width: d.frame.width, height: d.frame.height)
                                 .position(x: d.frame.origin.x + d.frame.width * 0.5, y: bounds.height - (d.frame.origin.y + d.frame.height * 0.5))
+                        }
+                    }
+                }
+                    .clipped()
+                
+                ZStack {
+                    ForEach(faceDetections, id: \.id) { d in
+                        // The bounding frame
+                        Rectangle()
+                            .strokeBorder(Color.red, style: StrokeStyle(lineWidth: 1.0))
+                            .frame(width: d.frame.width, height: d.frame.height)
+                            .position(x: d.frame.origin.x + d.frame.width * 0.5, y: bounds.height - (d.frame.origin.y + d.frame.height * 0.5))
+                    }
+                    ForEach(faceLandmarks, id: \.id) { d in
+                        ZStack {
+                            ForEach(d.facePaths, id: \.self) { p in
+                                Path(p)
+                                    .stroke(Color.orange, style: StrokeStyle(lineWidth: 1.0))
+                            }
+                            Circle()
+                                .fill(Color.orange)
+                                .frame(width: 10.0, height: 10.0)
+                                .position(x: d.rightPupil.x, y: d.rightPupil.y)
+                            Circle()
+                                .fill(Color.orange)
+                                .frame(width: 10.0, height: 10.0)
+                                .position(x: d.leftPupil.x, y: d.leftPupil.y)
                         }
                     }
                 }

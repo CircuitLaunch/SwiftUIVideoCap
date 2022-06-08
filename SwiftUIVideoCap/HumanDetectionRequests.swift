@@ -1,5 +1,5 @@
 //
-//  FaceDetector.swift
+//  HumanDetectionRequests.swift
 //  SwiftUIVideoCap
 //
 //  Created by Edward Janne on 6/5/22.
@@ -8,15 +8,16 @@
 import Foundation
 import Vision
 
-class FaceDetector: VisionRequest {
+class FaceDetectionRequest: VisionRequest {
     override func createDetector(_ completion: VNRequestCompletionHandler?)->VNRequest? {
         return VNDetectFaceRectanglesRequest(completionHandler: completion)
     }
 }
 
-class FaceLandmarkDetector: VisionRequest{
+class FaceLandmarkDetectionRequest: VisionRequest{
     var faceDetector: VNDetectFaceLandmarksRequest? = nil
     
+    // Pass an array of cached face observations to the request object
     var faceObservations: [VNFaceObservation] {
         set {
             if let detector = self.faceDetector {
@@ -37,19 +38,19 @@ class FaceLandmarkDetector: VisionRequest{
     }
 }
 
-class HumanDetector: VisionRequest {
+class HumanDetectionRequest: VisionRequest {
     override func createDetector(_ completion: VNRequestCompletionHandler?)->VNRequest? {
         return VNDetectHumanRectanglesRequest(completionHandler: completion)
     }
 }
 
-class BodyPoseDetector: VisionRequest {
+class BodyPoseDetectionRequest: VisionRequest {
     override func createDetector(_ completion: VNRequestCompletionHandler?)->VNRequest? {
         return VNDetectHumanBodyPoseRequest(completionHandler: completion)
     }
 }
 
-class HandPoseDetector: VisionRequest {
+class HandPoseDetectionRequest: VisionRequest {
     override func createDetector(_ completion: VNRequestCompletionHandler?)->VNRequest? {
         return VNDetectHumanHandPoseRequest(completionHandler: completion)
     }

@@ -15,9 +15,9 @@
 		C21B4C5928454B490021FF3A /* SwiftUIVideoCapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C5828454B490021FF3A /* SwiftUIVideoCapUITests.swift */; };
 		C21B4C5B28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */; };
 		C21B4C6828454D270021FF3A /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B4C6728454D270021FF3A /* VideoCapture.swift */; };
-		C2528E4328483A9C00ECF85C /* CoreMLVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2528E4228483A9C00ECF85C /* CoreMLVision.swift */; };
+		C2528E4328483A9C00ECF85C /* CoreMLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2528E4228483A9C00ECF85C /* CoreMLRequest.swift */; };
 		C2528E452848728E00ECF85C /* yolov5s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C2528E442848728E00ECF85C /* yolov5s.mlmodel */; };
-		C2D6156D284D3CA40089E7EE /* HumanDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6156C284D3CA40089E7EE /* HumanDetection.swift */; };
+		C2D6156D284D3CA40089E7EE /* HumanDetectionRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6156C284D3CA40089E7EE /* HumanDetectionRequests.swift */; };
 		C2D6156F284D3DB20089E7EE /* VisionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6156E284D3DB20089E7EE /* VisionRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,9 +52,9 @@
 		C21B4C5A28454B490021FF3A /* SwiftUIVideoCapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIVideoCapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C21B4C6728454D270021FF3A /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		C21B4C69284559D20021FF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C2528E4228483A9C00ECF85C /* CoreMLVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLVision.swift; sourceTree = "<group>"; };
+		C2528E4228483A9C00ECF85C /* CoreMLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLRequest.swift; sourceTree = "<group>"; };
 		C2528E442848728E00ECF85C /* yolov5s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov5s.mlmodel; sourceTree = "<group>"; };
-		C2D6156C284D3CA40089E7EE /* HumanDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanDetection.swift; sourceTree = "<group>"; };
+		C2D6156C284D3CA40089E7EE /* HumanDetectionRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanDetectionRequests.swift; sourceTree = "<group>"; };
 		C2D6156E284D3DB20089E7EE /* VisionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,8 +111,8 @@
 				C21B4C3E28454B480021FF3A /* ContentView.swift */,
 				C21B4C6728454D270021FF3A /* VideoCapture.swift */,
 				C2D6156E284D3DB20089E7EE /* VisionRequest.swift */,
-				C2528E4228483A9C00ECF85C /* CoreMLVision.swift */,
-				C2D6156C284D3CA40089E7EE /* HumanDetection.swift */,
+				C2528E4228483A9C00ECF85C /* CoreMLRequest.swift */,
+				C2D6156C284D3CA40089E7EE /* HumanDetectionRequests.swift */,
 				C21B4C4028454B490021FF3A /* Assets.xcassets */,
 				C2528E442848728E00ECF85C /* yolov5s.mlmodel */,
 				C21B4C4528454B490021FF3A /* SwiftUIVideoCap.entitlements */,
@@ -277,11 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C21B4C3F28454B480021FF3A /* ContentView.swift in Sources */,
-				C2528E4328483A9C00ECF85C /* CoreMLVision.swift in Sources */,
+				C2528E4328483A9C00ECF85C /* CoreMLRequest.swift in Sources */,
 				C2D6156F284D3DB20089E7EE /* VisionRequest.swift in Sources */,
 				C21B4C6828454D270021FF3A /* VideoCapture.swift in Sources */,
 				C21B4C3D28454B480021FF3A /* SwiftUIVideoCapApp.swift in Sources */,
-				C2D6156D284D3CA40089E7EE /* HumanDetection.swift in Sources */,
+				C2D6156D284D3CA40089E7EE /* HumanDetectionRequests.swift in Sources */,
 				C2528E452848728E00ECF85C /* yolov5s.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

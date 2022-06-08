@@ -10,9 +10,14 @@ import AVFoundation
 import Vision
 
 class VisionRequest {
+    // Dispatch queue on which to process the results
     var processingQueue: DispatchQueue
+    // An array to keep the request in scope
     var requests: [VNRequest] = []
     
+    
+    // Constructor which initializes the processing DispatchQueue which
+    // defaults to the main (or UI) queue
     init(withProcessingQueue queue: DispatchQueue = DispatchQueue.main) {
         processingQueue = queue
     }

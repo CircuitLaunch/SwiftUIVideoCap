@@ -1,5 +1,5 @@
 //
-//  CoreMLVision.swift
+//  CoreMLRequest.swift
 //  SwiftUIVideoCap
 //
 //  Created by Edward Janne on 6/1/22.
@@ -10,7 +10,7 @@ import AVFoundation
 import CoreML
 import Vision
 
-class CoreMLVision: VisionRequest {
+class CoreMLRequest: VisionRequest {
     let modelName: String
     let modelExt: String
     
@@ -21,6 +21,7 @@ class CoreMLVision: VisionRequest {
         // Defaults to "mlmodelc", which is what Xcode will name
         // the binary version of the file.
         modelExt = ext
+        // Pass processing thread to super
         super.init(withProcessingQueue: queue)
     }
     
@@ -38,7 +39,8 @@ class CoreMLVision: VisionRequest {
         do {
             // Try loading the model
             let model = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
-            return VNCoreMLRequest(model: model)
+            // Return a new request passing it the given completion closure
+            return VNCoreMLRequest(model: model, completionHandler: completion)
         } catch let error as NSError {
             print("Failed to load\(modelName).\(modelExt): \(error)")
         }
